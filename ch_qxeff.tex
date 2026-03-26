@@ -6,7 +6,7 @@
 \counterwithin{table}{section}
 
 \par The model and results described in this chapter were published in the \textit{Astrophysical Journal} \citep{Cook+25}.
-The main text of this chapter is directly informed by the content of \citet{Cook+25}, but please cite \citet{McKernan+25-mcfactsI} for model details and \citet{Delfavero+25} for results related to a cosmologically informed galaxy population.
+The main text of this chapter is directly informed by the content of \citet{Cook+25}, but please cite \citet{McKernan+25-mcfactsI} for model details and \citet{Delfavero+25-mcfactsIII} for results related to a cosmologically informed galaxy population.
 
 \subsection{Model description}
 
@@ -17,7 +17,7 @@ Additionally, a BH initial mass function (IMF $\propto M^{-2}$) is preferred ove
 The preferred fraction of prograde-to-retrograde is $>90\%$, to produce results consistent with observations.
 
 Here we present a study using the \code{McFACTS} code \citep[Monte Carlo For AGN Channel Testing and Simulations:][]{McKernan+25-mcfactsI} to test the predictions of the AGN channel for the $q$--$\Xeff$ distribution across a wide range of parameter space in both AGN disk and NSC models, with a view to tightly constraining requirements on the AGN channel.
-\citet{Delfavero+25} presents the first study of the AGN channel in a semi-realistic Universe of AGN and NSCs.
+\citet{Delfavero+25-mcfactsIII} presents the first study of the AGN channel in a semi-realistic Universe of AGN and NSCs.
 \code{McFACTS} features substantial improvements to the Monte Carlo code used in \citet{McKernan+20a} to explore $\Xeff$ of mergers in AGN and \citet{McKernan+22:q-Xeff} who explored the $q$--$\Xeff$ anti-correlation.
 The greater flexibility for exploring parameter space includes many improved models for disk-NSC interactions such as dynamical encounters, orbital migration, and binary evolution.
 
@@ -105,7 +105,7 @@ In practice, mergers also aggregate near $R\sim10^3\,\Rg$ (for $\Mbh = 10^8\,\Ms
 The choice of migration torque model may be important for disk structures around SMBH of different mass, and \code{McFACTS} provides the user with two options: a two-dimensional model from \citet{Paardekooper+10} and a three-dimensional (3D) model from \citet{JimenezMassset17}.
 In general, the Jim\'enez-Masset 3D torques are weaker across the bulk disk by up to $\sim$30\%.
 This tends to drop the overall merger rate in disks (including at the trap/swamp if present).
-Likewise migration traps move radially outward in units of $\Rg$ as the SMBH mass drops well below $\Mbh 10^8\,\Msun$, but in Paper I we compared these models and found little change for $\Mbh = 10^8\,\Msun$ \citep[see Fig. 6 \& 7 of][]{McKernan+25-mcfactsI}, which is also the SMBH mass we find that produces the most mergers \citep{Delfavero+25}.
+Likewise migration traps move radially outward in units of $\Rg$ as the SMBH mass drops well below $\Mbh 10^8\,\Msun$, but in Paper I we compared these models and found little change for $\Mbh = 10^8\,\Msun$ \citep[see Fig. 6 \& 7 of][]{McKernan+25-mcfactsI}, which is also the SMBH mass we find that produces the most mergers \citep{Delfavero+25-mcfactsIII}.
 Thus, we choose the simpler \citet{Paardekooper+10} torque model here and confine our study to disks around SMBH with mass $\Mbh = 10^8\,\Msun$.
 
 \subsubsection{Initial Black Hole Properties}
@@ -165,7 +165,7 @@ When $r<R_{\rm crit}$, $n\propto r^{-7/4}\,{\rm pc}^{-3}$ and $n\propto r^{-2.5}
 The mass of the central SMBH determines the profiles for a variety of important disk properties, including the density, scale height, and opacity, that vary with radius.
 It also influences the NSC mass and outer disk radius.
 For this study we restricted ourselves to a single SMBH mass of $10^8~\Msun$.
-We note that the standard TQM model uses an SMBH mass of $10^9~\Msun$, but \citet{Delfavero+25} find $\sim 10^{8}\Msun$ is likely to be the dominant contributor to AGN channel merger rates.
+We note that the standard TQM model uses an SMBH mass of $10^9~\Msun$, but \citet{Delfavero+25-mcfactsIII} find $\sim 10^{8}\Msun$ is likely to be the dominant contributor to AGN channel merger rates.
 
 \subsubsection{Retrograde Binary Fraction}
 We choose the BBH angular momentum by drawing from a distribution biased by the user-chosen fraction $\fret$.
@@ -384,7 +384,7 @@ The point at $\Xeff=-0.15$ and $q=0.24$ (masses $5.9_{-2.5}^{+2.0}\,\Msun$ and $
 The progenitors of this source have masses below the minimum mass in our IMF, but the mass ratio and effective spin suggest this source belongs to the 1g-1g population.
 GW190814 and GW200210\_092254, both with $q=0.1$ and centered at $\Xeff=0$, also correlate with the 1g-1g merger distribution.
 
-Our IMF range limits the mass ratio range of 1g-1g mergers to $q>$0.25, but see \citet{Delfavero+25} for a study producing mergers down to $q \sim 0.1$.
+Our IMF range limits the mass ratio range of 1g-1g mergers to $q>$0.25, but see \citet{Delfavero+25-mcfactsIII} for a study producing mergers down to $q \sim 0.1$.
 GW190412 falls between the 1g and hierarchical populations, but their masses ($27.7_{-6.0}^{+6.0}\,\Msun$ and $9.0_{-1.4}^{+2.0}\,\Msun$) make it difficult to distinguish between these possible progenitor populations.
 GW200208\_222616 lies at  $\Xeff=0.45$ and $q=0.24$ (masses $51_{-30}^{+103}\,\Msun$ and $12.3_{-5.5}^{+9.2}\,\Msun$).
 Though the data point overlaps with the low-$q$ end of the hierarchical population we produced, the large error bars, especially on the primary mass, suggest a 1g-1g or hierarchical merger are both possible explanations.

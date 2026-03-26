@@ -5,6 +5,7 @@ thesis: main.tex
 	bibtex main
 	pdflatex main.tex
 	pdflatex main.tex
+	pdflatex main.tex
 	mv main.pdf thesis.pdf
 	open thesis.pdf
 clean:

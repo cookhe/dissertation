@@ -6,7 +6,7 @@
 \counterwithin{table}{section}
 
 
-Here we describe the radiative transfer models we apply as post-processing to the three-dimensional hydrodynamic models described in the previous Chapter.
+Here we describe the radiative transfer models we apply as post-processing to the three-dimensional hydrodynamic models described in the previous chapter.
 The content will be submitted to the \textit{Astrophysical Journal} for publication.
 Please cite Cook et al. (2026b) when possible.
 
@@ -18,8 +18,10 @@ Please cite Cook et al. (2026b) when possible.
 
 \subsubsection{Vertical Temperature Profile} \label{subsec:temperature-profile}
 
-The disk models in Paper I were initialized isothermally by setting the sound speed according to the midplane temperature $\Tmid$ at the SN's radius in a \citet{SirkoGoodman03} disk.
-Continuing the assumption of hydrostatic equilibrium we apply a Gaussian temperature profile in $z$ over the entire domain for each snapshot as follows:
+The disk models in Ch.~\ref{sec:sn-hydrodynamics} were initialized isothermally by setting the sound speed according to the midplane temperature $\Tmid$ at the SN's radius in a \citet{SirkoGoodman03} disk.
+In hydrostatic equilibrium an isothermal disk has a vertical density profile that is Gaussian, which is a good approximation for the temperature in passive disks (those heated by an external source).
+Active disks (those internally heated) are much hotter in the midplane and have much more complicatedvertical structures, and determining the $T(z)$ dependence is non-trivial.
+For this study, we apply a temperature mask over the entire domain for each snapshot of the form
 \begin{equation}
 \label{eqn:temp-profile}
     T(z) =
@@ -30,8 +32,8 @@ Continuing the assumption of hydrostatic equilibrium we apply a Gaussian tempera
     \end{cases}
 \end{equation}
 where $\Tfloor=2000$ K.
-We could use simply $T_iso = T_mid$, but in practice we find that we need to allow for some flexibility in regions modified by the SN Gaussian in the initial conditions.
-As such, we set $T_iso = (1+\epsilon) T_mid$, and find empirically that $\epsilon=1e-2$ gives acceptable results.
+We could use simply $\Tiso = \Tmid$, but in practice we find that we need to allow for some flexibility in regions modified by the SN Gaussian in the initial conditions.
+As such, we set $\Tiso = (1+\epsilon) T_mid$, and find empirically that $\epsilon=10^{-2}$ gives acceptable results.
 We find the temperature scale height $H_T=1.7\,H$ by root-solving for the profile from the midplane temperature to the effective temperature $\Teff$ using the Eddington approximation
 \begin{equation}
 	T = \left( \frac{3}{8} \tau + \frac{1}{2} + \frac{1}{4\tau} \right)^{1/4}\ \Teff.
@@ -64,7 +66,7 @@ The presence of scattering calls for an effective source function that depends o
 where $\omega_\lambda = \sigma_\lambda / (\kappa_\lambda + \sigma_\lambda)$ is the single-scattering albedo.
 The subscript $\lambda$ indicates quantities with wavelength dependence.
 By restricting $\theta$ to be either 0 or $\pi$, we adopt the two-stream approximation which allows the radiation field to travel only upwards ($\Iplus$) or downwards ($\Iminus$), respectively, along the $z$-axis through independent columns of cells located at a given $(x, y)$ position.
-First, we tried direct integration like in \citet{Godines+26}, but unlike a protoplanetary disk, an AGN disk is not isothermal and does not allow for this crude integration which could not capture the dependence of $S_\lambda$ on $J_\lambda$.
+First, we tried direct integration like in \citet{Godines+26}, but unlike a protoplanetary disk, an AGN disk is not isothermal and does not allow for this crude integration which lost too much flux in the non-conservative direct integration due to exponentially changing intensities.
 Therefore, each column is treated as an isolated stream and is solved using the Feautrier method \citep{Feautrier64,Cannon70}, an implicit method which calculates the mean intensity at each point simultaneously.
 See Appendix \ref{sec:Apdx-Feautrier} for our modification of the method to include scattering and our boundary conditions.
 
@@ -76,7 +78,7 @@ We calculate the combined continuous absorption from these processes, following 
 	\kappa_\lambda =& \biggl\{ \bigl[ \kappa(\text{H}_\text{bf}) + \kappa(\text{H}_\text{ff}) + \kappa(\text{H}^-_\text{bf}) \bigr] (1 - 10^{-\chi \theta}) \nonumber \\
 		    &+ \kappa(\text{H}^-_\text{ff}) \biggr\} \frac{1}{1 + \Phi_\text{H}(T) / P_\text{e}}  + \kappa(\text{e}^-).
 \end{align}
-The factor $1-10^{-\chi\theta}$ accounts for the stimulated emission of H and $\Hminus$ with $\theta = 5040 / T\ \text{eV}^{-1}$ and $\chi(\lambda) = 1.2398 \times 10^4 / \lambda\ \text{eV}$ when $T$ is in Kelvin and $\lambda$ is in \r{A}ngstr\"om.
+The factor $1-10^{-\chi\theta}$ accounts for the stimulated emission of H and $\Hminus$ with $\theta = 5040 / T\ \text{eV}^{-1}$ and $\chi(\lambda) = 1.2398 \times 10^4 / \lambda\ \text{eV}$ when $T$ is in Kelvin and $\lambda$ is in \r{a}ngstr\"om.
 The ionization state $\Phi_\text{H}(T)$ is given by the Saha equation, and $P_\text{e}$ is the partial pressure due to free electrons.
 Though scattering processes in general can be wavelength-dependent, the scattering coefficient for free electrons $\sigma$ is wavelength-\emph{independent}, but it is proportional to the ratio between the number densities of ionized hydrogen $n_\text{HII}$ to total hydrogen $n_\text{H}$, $\sigma = 0.6648 \times 10^{-24} \,n_\text{HII} / n_\text{H}$.
 This model ignores line opacities and only treats the continuum emission.
@@ -91,10 +93,11 @@ See Appendix \ref{sec:Apdx-Opacities} for full descriptions of the absorption an
 The \citet{SirkoGoodman03} disk has the highest volume density at $10^3\,\Rs$ where we place our fiducial miplane model \code{r1e3-z0h}.
 This location was also chosen because it is the most optically thick and thus most likely to prevent or delay electromagnetic radiation from reaching the disk photosphere.
 Using \eq{eqn:temp-profile} to apply the temperature profile, we set $\Tmid=6\times10^4$ K.
-The blue curve in Fig.~\ref{fig:all_lcs} is the light curve calculated using our post-processing radiative transfer code Ocotillo (see Appendix \ref{sec:Appendix-RTModel}) after integrating the flux over 50 wavelengths over the range $800\leq\lambda\leq8000\ \text{\AA}$.
+The blue curve in Fig.~\ref{fig:all_lcs} is the light curve calculated using our post-processing radiative transfer code \code{Ocotillo} (see Appendix \ref{sec:Appendix-RTModel}) after integrating the flux over 50 wavelengths over the range $800\leq\lambda\leq8000\ \text{\AA}$.
 The light curve remains constant for the first $\sim$20 days when the shock begins to pass through the disk's photosphere and breaks free at $\sim$30 days.
 The luminosity rises to $10^{46}\,{\rm erg\,s}^{-1}$ over the next 50 days as the shock expands outside the disk, peaking at $\sim90$ days.
 The kink in the light curve at this time is due to the shock crossing the $z$-boundary, meaning we do not capture the true peak of the lightcurve.
+However, continuing their curves, we can estimate their peaks will occur at 115 days emitting $2\times10^{47}\,\text{erg s}^{-1}$ (\code{r1e3-z1h-up}) and at 140 days emitting $3\times10^{46}\,\text{erg s}^{-1}$ (\code{r1e3-z0h}).
 
 \begin{figure}[h]
     \begin{subfigure}{0.5\textwidth}
@@ -105,7 +108,7 @@ The kink in the light curve at this time is due to the shock crossing the $z$-bo
 	\centering
         \includegraphics[width=1\linewidth]{ch_snrt_figs/lightcurves_r5.pdf}
     \end{subfigure}
-	\caption{Optical light curves for our SN simulations integrated over 50 wavelength bins spanning 800 to 8000 $\text{\AA}$.
+	\caption[Optical light curves]{\textbf{Optical light curves} for our SN simulations integrated over 50 wavelength bins spanning 800 to 8000 $\text{\AA}$.
 	\code{r1e3-z0h} is our midplane fiducial model at $r=10^3\,\Rs$, \code{r1e3-z1h} is our model at the same radius but with the SN placed at a height $z=1\,H$.
 	The curve labeled with \code{-up} is produced when observing from the positive $z$ boundary (i.e., the same side of the midplane as the offset SN), while the curve labeled with a \code{-down} is produced when observing from the negative $z$ boundary, or the far side of the disk.
 	The lower pannel shows the lightcurve from our \code{r1e5-z0h} model which places a midplane SN at $r=10^5\,\Rs$.
@@ -147,7 +150,7 @@ Even though two models showed color changes, the difference is small $\Delta (g-
 \begin{figure}
     \centering
     \includegraphics[width=1.0\columnwidth]{ch_snrt_figs/gr_color_composite.pdf}
-    \caption{ZTF $g-r$ color evolutions. Panel A is from our fiducial model at $R=10^3\,\Rs$, panel B is the offset model at the same radius, and panel C is the midplane model at $R=10^5\,\Rs$.
+	\caption[ZTF $g-r$ color evolutions]{ZTF $g-r$ color evolutions. Panel A is from our fiducial model at $R=10^3\,\Rs$, panel B is the offset model at the same radius, and panel C is the midplane model at $R=10^5\,\Rs$.
     The observed color becomes bluer when the shock breaks free, but the small change $\Delta(g-r)\sim 0.04$ would be undetectable amidst the noise for AGN J1249$+$344 with $\Delta(g-r)\sim0.1$ as reported by \citet{Graham+20}.}
     \label{fig:color-lightcurve}
 \end{figure}
@@ -170,7 +173,7 @@ Even though two models showed color changes, the difference is small $\Delta (g-
 \subsection{Discussion} \label{sec:discussion}
 
 The baseline disk luminosities in Fig.~\ref{fig:all_lcs} are only produced by the radiation emitted by the small patch of the disk contained in the shearing box models, whereas the full integrated disk luminosity is much larger.
-While studying spectra for AGN accretion disks, \citet{Hubeny+01} found that for a disk around a black hole of mass $\Mbh=10^8\,\Msun$ with a viscocity parameter of $\alpha=0.01$ has a luminosity $L=0.3L_\text{Edd}=4.4\cdot10^45(M/\Msun)$ erg s$^{-1}$ when considing electron scatting.
+While studying spectra for AGN accretion disks, \citet{Hubeny+01} found that for a disk around a black hole of mass $\Mbh=10^8\,\Msun$ with a viscocity parameter of $\alpha=0.01$ has a luminosity $L=0.3L_\text{Edd}=4.4\cdot10^45(M/\Msun)$ erg s$^{-1}$ when considering electron scatting.
 Therefore, only the SNe in models \texttt{r1e3-z0h} and \texttt{r1e3-z1h-up} may be detectable against the bright disk, and any observations would need to be able to distinguish changes from the disk emission by a factor of a few.
 
 Additionally, as shown in \Fig{fig:color-lightcurve}, the color changes for these two SNe are very small ($\Delta g-r \sim 0.04$).
@@ -181,7 +184,8 @@ Comparing with alert ZTF19abanrhr, the proposed EM counterpart to GW190521, our 
 Therefore, an AGN-SN may be indistinguishable from a flare caused by the recoiling remnant of a BBH merger that creates a shock in the disk \citep{McKernan+19}. 
 Future work should model the black hole recoil to identify distinguishing characteristics between the two events.
 
-While the light curves do begin to level out, the peaks we see in the \code{r1e3-z0h} and \code{r1e3-z1h-up} curves in \Fig{fig:all_lcs} may be artificially caused by the shock passing through the $z$ boundaries.
+While the light curves do begin to level out, the peaks we see in the \code{r1e3-z0h} and \code{r1e3-z1h-up} curves in \Fig{fig:all_lcs} are artificially caused by the shock passing through the $z$ boundaries.
+We cannot push our domain size larger using the current grid structure due to resolution limitations without needing non-equidistant grids,  mesh refinement, or global simulations in polar coordinates.
 Also, our radiative transfer model is limited to one dimension, and therefore cannot account for scattering at oblique angles to the line of sight.
 As such, the mean intensity may change due to this effect, but we have performed these calculations with a face-on view of the disk which is expected to be the brightest viewing angle.
 However, massive stars in the disk may not detonate as SNe at all.

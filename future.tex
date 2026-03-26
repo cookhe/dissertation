@@ -18,4 +18,25 @@ Other Future near-term goals include:
 (vii) add more sophisticated treatments for binary capture \citep{Whitehead+25b} and stalling of gas hardening (Postiglione et al. 2026 in prep.).
 
 \subsection{Updates to Ocotillo and New Models}
-%TODO - add recoiling remnant model here from the funding proposals
+
+
+The embedded SNe light curve we produced was marginably visible against a bright AGN disk and the color evolution would likely be lost in the noise of typical AGN variability. 
+To further address this issue we will need to improve Ocotillo's capabilities to include continuous opacities into X-ray and Infrared wavelengths.
+Additionally, we will need to consider a different domain setup for our hydrodynamic calculations since we are approaching the limits of resolution for three-dimensions in terms of computational expense and data storage requirements.
+
+We also plan to model the hydrodynamics and radiative transfere of a recoiling BBH merger remnant.
+In a black hole merger, some mass is lost and converted into gravitational waves, dissipating energy and angular momentum; a loss that is accompanied by a decrease of the Hill radius of the remnant in comparison with the combined Hill radius of the progenitors.
+The dynamical consequences are manifold.
+First, gas within the Hill sphere that is orbiting too fast for the new lower mass moves outward, self-colliding \citep{McKernan+19}.
+Second, gas no longer bound by the new, smaller Hill sphere shocks with AGN gas in orbit around the central mass.
+Third, a gravitational wave kick at merger causes ram-pressure stripping of the original Hill sphere gas as it collides with a comparable mass of disk gas.
+Flares from disk-remnant interactions have been studied analytically \citep{McKernan+19}, showing that whether the flare is prompt or delayed depends on whether the Hill sphere radius is larger than (prompt ultraviolet and optical flare) or smaller than (delayed and diminished with drawn out optical flare) the disk scale height.
+Our proposed work will test these analytical results and produce theoretical observables for comparison with follow-up campaigns to future gravitational wave detections, shedding light onto a problem that has received little numerical attention \citep{Corrales+10}.
+To model these disk-remnant interactions, we will use the same local shearing box set up as the
+supernova.
+We will represent the recoiling black hole by giving a velocity kick to the portion of
+the disk gas within its Hill sphere directed along a chosen trajectory varying the direction and kick
+velocity.
+This construction eliminates the need for a domain large enough to contain the remnant’s
+entire orbital path, and focuses computational resources on the disk-remnant interaction that occurs
+over a short timescale in a localized region of the disk.

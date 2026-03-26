@@ -17,7 +17,7 @@ Here we present several qualitative studies of the AGN channel using a public, o
 We demonstrate several important features for testing the AGN channel, including:
 i) growth to large mass IMBH is helped by the presence of migration traps or swamps,
 ii) flat BH initial mass functions highlight hierarchical merger features in the mass spectrum,
-iii) the ($q,\chi_{\rm eff}$) anti-correlation is a strong test of the bias to prograde mergers in the AGN channel,
+iii) the $q$--$\Xeff$ anti-correlation is a strong test of the bias to prograde mergers in the AGN channel,
 iv) spheroid encounters can drive a fraction of mergers with high in-plane spin components ($\chi_{\rm p}$),
 v) a high rate of extreme mass ratio inspirals (EMRIs) are driven by an initial population of embedded retrograde BH, and
 vi) both LVK and LISA are powerful probes of models of AGN disks and their embedded populations.
@@ -26,7 +26,7 @@ vi) both LVK and LISA are powerful probes of models of AGN disks and their embed
 \subsection{Default Model Assumptions}
 \label{sec:mcfacts-assumptions}
 
-In the results that follow, default model parameters (also in \code{p1_model_default.ini}) are listed in Table~\ref{tab:default_model}. Unless otherwise specified, we assume a \citet{SirkoGoodman03} disk model as interpolated from the pAGN package \citep{Gangardt+24-pAGN} around a $10^{8}\,M_{\odot}$ SMBH, spanning $[6,50000]\,\Rg$, with disk viscosity parameter $\alpha=0.01$ and lasting $0.5$ Myr. Average disk aspect ratio for this model is assumed to be $\sim 0.03$ and EMRIs are tracked within $50\,\Rg$ of the SMBH. A migration trap is assumed to live at $700\,\Rg$ (\citealt{Bellovary+16}, although see also \citealt{Grishin+23}). 
+In the results that follow, default model parameters (also in \code{p1_model_default.ini}) are listed in Table~\ref{tab:default_model}. Unless otherwise specified, we assume a \citet{SirkoGoodman03} disk model as interpolated from the \code{pAGN} package \citep{Gangardt+24-pAGN} around a $10^{8}\,M_{\odot}$ SMBH, spanning $[6,50000]\,\Rg$, with disk viscosity parameter $\alpha=0.01$ and lasting $0.5$ Myr. Average disk aspect ratio for this model is assumed to be $\sim 0.03$ and EMRIs are tracked within $50\,\Rg$ of the SMBH. A migration trap is assumed to live at $700\,\Rg$ (\citealt{Bellovary+16}, although see also \citealt{Grishin+23}). 
 
 Following \citet{Generozov+18}, a nuclear star cluster (NSC) is assumed to fill the inner galactic nucleus out to $5$pc, with an inner number density profile $n\propto r^{-7/4}$ within $r\sim 0.25$pc and $n \propto r^{-2.5}$ outside that. The BH population of the NSC is normalized at $10^{4}$ inside the central ${\rm pc}^{3}$, matching inferences of the population in our own Galactic nucleus. The BH population mass distribution has a Pareto form with index $M^{-2}$, $M_{\rm BH, min}=10\,M_{\odot}$, $M_{\rm BH,max}=40\,M_{\odot}$. BH drawn from this distribution above $M_{\rm BH,max}$ are randomly assigned masses in a Gaussian pile-up centered on $35\,M_{\odot}$ of width $2.3\,M_{\odot}$, mimicking the observed pile-up in the LVK mass spectrum \citep{Abbott+23-massbump}. The initial BH spin distribution is assumed to be drawn from a Gaussian centered on dimensionless spin parameter $=0$ and of width $0.1$. Assuming an average scale height across the \citet{SirkoGoodman03} disk model, the fraction of BH with orbits coincident with the disk volume is calculated and the corresponding radial BH locations are generated from a distribution reflecting the user choice of NSC density.
 
@@ -53,7 +53,7 @@ By contrast, Fig.~\ref{fig:mf2} (right panel) shows the same quantities, for the
     \centering
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/default_merger_remnant_mass.png}
       \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_m1_merger_remnant_mass.png}
-    \caption{Number of BBH mergers per generation of BH as a function of merged mass ($M_\odot$) for different BH initial mass functions (IMFs). Left panel corresponds to a BH IMF of $M^{-2}$ with minimum $M_{\rm BH}=10\,M_{\odot}$, maximum initial mass $M_{\rm BH, max}=40\,M_{\odot}$ and simple pile-up model between $[35,40]\,M_{\odot}$ for a 0.5Myr, SG disk model around a $M_{\rm SMBH}=10^{8}\,M_{\odot}$ (see text). Gold denotes 1g-1g mergers, purple denotes 2g-mg ($m\leq 2$)and red denotes 3g-ng ($n \leq 3$) and higher, where 1g is first generation BH (not previously involved in a merger), 2g is second generation (the result of 1 merger) etc. Right panel is as left panel but with BH IMF of $M^{-1}$. Input file is \texttt{model\_choice\_old.ini} with \texttt{nsc\_imf\_bh\_powerlaw\_index = 2.(1.)} left (right), \texttt{galaxy\_num = 100} and \code{seed = 3456789018}. Equivalent merger rates correspond to $\mathcal{R}\sim 22.0(40.0) \,{\rm Gpc}^{-3} \rm {yr}^{-1}$ in left (right) panel.
+	\caption[Number of BBH mergers per generation of BH as a function of merged mass]{\textbf{Number of BBH mergers per generation of BH as a function of merged mass} ($M_\odot$) for different BH initial mass functions (IMFs). Left panel corresponds to a BH IMF of $M^{-2}$ with minimum $M_{\rm BH}=10\,M_{\odot}$, maximum initial mass $M_{\rm BH, max}=40\,M_{\odot}$ and simple pile-up model between $[35,40]\,M_{\odot}$ for a 0.5Myr, SG disk model around a $M_{\rm SMBH}=10^{8}\,M_{\odot}$ (see text). Gold denotes 1g-1g mergers, purple denotes 2g-mg ($m\leq 2$)and red denotes 3g-ng ($n \leq 3$) and higher, where 1g is first generation BH (not previously involved in a merger), 2g is second generation (the result of 1 merger) etc. Right panel is as left panel but with BH IMF of $M^{-1}$. Input file is \texttt{model\_choice\_old.ini} with \texttt{nsc\_imf\_bh\_powerlaw\_index = 2.(1.)} left (right), \texttt{galaxy\_num = 100} and \code{seed = 3456789018}. Equivalent merger rates correspond to $\mathcal{R}\sim 22.0(40.0) \,{\rm Gpc}^{-3} \rm {yr}^{-1}$ in left (right) panel.
    }
     \label{fig:mf2}
 \end{figure*}
@@ -62,7 +62,7 @@ By contrast, Fig.~\ref{fig:mf2} (right panel) shows the same quantities, for the
     \centering
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/default_m1m2.png}
       \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_m1_m1m2.png}
-    \caption{Distribution of BH masses ($M_{1},M_{2}$) involved in the mergers in Fig.~\ref{fig:mf2}.
+	\caption[Distribution of merger BH masses]{Distribution of BH masses ($M_{1},M_{2}$) involved in the mergers in Fig.~\ref{fig:mf2}.
    }
     \label{fig:m1m2}
 \end{figure*}
@@ -84,7 +84,7 @@ We expect new BBH to form mostly from the circularized population. The subsequen
     \centering
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_circ_merger_mass_v_radius.png}
       \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_circ_time_of_merger.png}
-    \caption{BBH merger mass as a function of disk radius (left panel) and time (right panel). All BH are assumed initially circularized and no dynamical encounters occur. Input file is \texttt{model\_choice\_old.ini} with \texttt{flag\_orb\_ecc\_damping = 0}, \texttt{flag\_dynamic\_enc = 0}, \texttt{nsc\_spheroid\_normalization = 0.0}, \texttt{galaxy\_num = 100} and \texttt{seed = 3456789018}. Equivalent merger rate is ${\mathcal{R}} \sim 95.4\, {\rm Gpc}^{-3} {\rm yr}^{-1}.$
+	\caption[BBH merger mass as a function of disk radius and time]{\textbf{BBH merger mass as a function of disk radius (left panel) and time (right panel).} All BH are assumed initially circularized and no dynamical encounters occur. Input file is \texttt{model\_choice\_old.ini} with \texttt{flag\_orb\_ecc\_damping = 0}, \texttt{flag\_dynamic\_enc = 0}, \texttt{nsc\_spheroid\_normalization = 0.0}, \texttt{galaxy\_num = 100} and \texttt{seed = 3456789018}. Equivalent merger rate is ${\mathcal{R}} \sim 95.4\, {\rm Gpc}^{-3} {\rm yr}^{-1}.$
    }
     \label{fig:circ}
 \end{figure*}
@@ -101,7 +101,7 @@ The largest mass IMBH occur at or near the migration trap or at the disk outer b
     \centering
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_ec9_merger_mass_v_radius.png}
       \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_ec9_time_of_merger.png}
-    \caption{As Fig.~\ref{fig:circ} except all BH are assumed to be drawn from an initial uniform distribution of orbital eccentricities between [$0.0,0.9$] and no dynamical encounters occur. Input file is as Fig.~\ref{fig:circ}, except \texttt{flag\_orb\_ecc\_damping = 1} and \texttt{disk\_bh\_orb\_ecc\_max\_init = 0.9}. Equivalent merger rate is ${\mathcal{R}} \sim 26.8 \,{\rm Gpc}^{-3} {\rm yr}^{-1}.$
+	\caption[BBH merger mass for e=[0.0,0.9]]{\textbf{BBH merger mass for e=[0.0,0.9]}As Fig.~\ref{fig:circ} except all BH are assumed to be drawn from an initial uniform distribution of orbital eccentricities between [$0.0,0.9$] and no dynamical encounters occur. Input file is as Fig.~\ref{fig:circ}, except \texttt{flag\_orb\_ecc\_damping = 1} and \texttt{disk\_bh\_orb\_ecc\_max\_init = 0.9}. Equivalent merger rate is ${\mathcal{R}} \sim 26.8 \,{\rm Gpc}^{-3} {\rm yr}^{-1}.$
    }
     \label{fig:ecc}
 \end{figure*}
@@ -110,7 +110,7 @@ The largest mass IMBH occur at or near the migration trap or at the disk outer b
     \centering
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/default_merger_mass_v_radius.png}
       \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/default_time_of_merger.png}
-    \caption{As Fig.~\ref{fig:ecc} except all BH are assumed to be drawn from an initial uniform distribution of orbital eccentricities between [$0.0,0.3$] and dynamical encounters are allowed. Input file is \texttt{model\_choice\_old.ini} with \texttt{flag\_orb\_ecc\_damping = 1}, \texttt{flag\_dynamic\_enc = 1}, \texttt{nsc\_spheroid\_normalization = 1.0}, \texttt{disk\_bh\_orb\_ecc\_max\_init = 0.3}, \texttt{galaxy\_num = 100} and \texttt{seed = 3456789018}. Equivalent merger rate is ${\mathcal{R}} \sim 22.0 \,{\rm Gpc}^{-3} {\rm yr}^{-1}.$
+	\caption[BBH merger mass for e=[0.0,0.3]]{\textbf{BBH merger mass for e=[0.0,0.3]}As Fig.~\ref{fig:ecc} except all BH are assumed to be drawn from an initial uniform distribution of orbital eccentricities between [$0.0,0.3$] and dynamical encounters are allowed. Input file is \texttt{model\_choice\_old.ini} with \texttt{flag\_orb\_ecc\_damping = 1}, \texttt{flag\_dynamic\_enc = 1}, \texttt{nsc\_spheroid\_normalization = 1.0}, \texttt{disk\_bh\_orb\_ecc\_max\_init = 0.3}, \texttt{galaxy\_num = 100} and \texttt{seed = 3456789018}. Equivalent merger rate is ${\mathcal{R}} \sim 22.0 \,{\rm Gpc}^{-3} {\rm yr}^{-1}.$
    }
     \label{fig:dyn-ecc}
 \end{figure*}
@@ -119,7 +119,7 @@ The largest mass IMBH occur at or near the migration trap or at the disk outer b
     \centering
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/jm17_m_rad_vf.png}
       \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/jm17_time_vf.png}
-    \caption{As Fig.~\ref{fig:dyn-ecc}, except \texttt{torque\_prescription = jimenez\_masset}. Equivalent merger rate is ${\mathcal{R}} \sim 21.2\ {\rm Gpc}^{-3} {\rm yr}^{-1}$.
+	\caption[Jimenez \& Masset torque prescription]{\textbf{Jimenez \& Masset torque prescription}As Fig.~\ref{fig:dyn-ecc}, except \texttt{torque\_prescription = jimenez\_masset}. Equivalent merger rate is ${\mathcal{R}} \sim 21.2\ {\rm Gpc}^{-3} {\rm yr}^{-1}$.
    }
     \label{fig:jm}
 \end{figure*}
@@ -137,7 +137,7 @@ First, we introduce interactions between the embedded BH in the disk. Circulariz
 \begin{figure}
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/default_r_chi_p.png}
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_sphoff_r_chi_p.png}
-    \caption{$\chi_{\rm p}$ for BBH mergers as a function of disk radius where spheroid encounters are on (top panel) and spheroid encounters are off (bottom panel). Input file and parameters (top panel) are as in Fig.~\ref{fig:dyn-ecc}, and in bottom panel except \texttt{nsc\_spheroid\_normalization = 0.0}. Equivalent merger rate is ${\mathcal{R}} \sim 22.0(22.7) \,{\rm Gpc}^{-3} {\rm yr}^{-1}$ top (bottom) panel.
+	\caption[In-plane spin for BBH mergers as a function of disk radius]{\textbf{$\chi_{\rm p}$ for BBH mergers as a function of disk radius} where spheroid encounters are on (top panel) and spheroid encounters are off (bottom panel). Input file and parameters (top panel) are as in Fig.~\ref{fig:dyn-ecc}, and in bottom panel except \texttt{nsc\_spheroid\_normalization = 0.0}. Equivalent merger rate is ${\mathcal{R}} \sim 22.0(22.7) \,{\rm Gpc}^{-3} {\rm yr}^{-1}$ top (bottom) panel.
    }
     \label{fig:chi_p}
 \end{figure}
@@ -145,7 +145,7 @@ First, we introduce interactions between the embedded BH in the disk. Circulariz
 
 \begin{figure}
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/default_v_kick_vs_radius.png}
-    \caption{(\emph{Left panel:})  Velocity kicks as a function of disk radius and generation associated with mergers for the model in Fig.~\ref{fig:mf2}(a). (\emph{Right panel:}) Number and generation of mergers as a function of kick velocity. Dash-dot line corresponds to mean kick velocity of $\sim 133{\rm km/s}$.
+	\caption[Velocity kicks vs. radius]{\textbf{Velocity kicks vs. radius.} (\emph{Left panel:})  Velocity kicks as a function of disk radius and generation associated with mergers for the model in Fig.~\ref{fig:mf2}(a). (\emph{Right panel:}) Number and generation of mergers as a function of kick velocity. Dash-dot line corresponds to mean kick velocity of $\sim 133{\rm km/s}$.
     }
     \label{fig:v_kick}
 \end{figure}
@@ -154,15 +154,15 @@ Spheroid encounters have a significant effect in generating a in-plane spin comp
 
 Fig.~\ref{fig:v_kick} shows the distribution of merger kick velocities as a function of disk radius, calculated from eqn.~\ref{eq:v_kick}. First generation BH mergers (in gold) peak strongly around $\sim 200{\rm km/s}$ as we expect \citep{Varma+22}. However, higher generation BH have smaller kick magnitudes ($\sim 100{\rm km/s}$) with this prescription. We caution that this is an \emph{underestimate} of the kicks to be expected among higher generation mergers. In particular, including the relativistic evolution of the BBH allows for much higher values of the merger kick (up to $\sim 2000{\rm km/s}$) among the higher generation mergers. This will be very important for potential mass segregation between AGN phases \citep[e.g.][]{Gilbaum+25} (see also Ray et al. 2026, in prep.).
 
-\subsection{The ($q,\chi_{\rm eff}$) anti-correlation}
+\subsection{The $q$--$\Xeff$ anti-correlation}
 \label{sec:qXeff-agnbbh}
-LVK observations suggest an intruiging anti-correlation between the BBH mass ratio ($q$) and the effective spin ($\chi_{\rm eff}$) of mergers \citep{Callister21}. The anti-correlation is consistent with greater alignment between spin and BBH orbital angular momentum for the primary BH component ($\chi_{1}$) when BBH masses are less equal. The only reason for such a anti-correlation to arise in a dynamical channel is if there is a bias towards alignment of the primary BH spin with the BBH orbital angular momentum. AGN disks can naturally provide such a bias \citep[e.g.][]{McKernan+22:q-Xeff, Santini+23}. This bias alone (via spin-up and spin torquing) is insufficient however; a bias \emph{against} retrograde BBH mergers is also required. In the AGN channel, such a bias might occur because: (i) Retrograde disk BBH are flipped to prograde over time due to gas accretion \citep{DittmannJermynCantiello23} or, (ii) retrograde BBH experience orbital eccentricity pumping \citep{Calcino+23}, so retrograde BBH should spend more time at wider separations than prograde BBH with similar semi-major axes around their center of mass \citep{WangZhuLin24}, or (iii) spheroid encounters with in-plane retrograde BBH will drive the BBH away from retrograde \citep{Samsing+22} and gas torquing tends to drive the BBH towards $\chi_{\rm eff}>0$. 
+LVK observations suggest an intruiging anti-correlation between the BBH mass ratio ($q$) and the effective spin ($\Xeff$) of mergers \citep{Callister21}. The anti-correlation is consistent with greater alignment between spin and BBH orbital angular momentum for the primary BH component ($\chi_{1}$) when BBH masses are less equal. The only reason for such a anti-correlation to arise in a dynamical channel is if there is a bias towards alignment of the primary BH spin with the BBH orbital angular momentum. AGN disks can naturally provide such a bias \citep[e.g.][]{McKernan+22:q-Xeff, Santini+23}. This bias alone (via spin-up and spin torquing) is insufficient however; a bias \emph{against} retrograde BBH mergers is also required. In the AGN channel, such a bias might occur because: (i) Retrograde disk BBH are flipped to prograde over time due to gas accretion \citep{DittmannJermynCantiello23} or, (ii) retrograde BBH experience orbital eccentricity pumping \citep{Calcino+23}, so retrograde BBH should spend more time at wider separations than prograde BBH with similar semi-major axes around their center of mass \citep{WangZhuLin24}, or (iii) spheroid encounters with in-plane retrograde BBH will drive the BBH away from retrograde \citep{Samsing+22} and gas torquing tends to drive the BBH towards $\Xeff>0$. 
 
 \begin{figure*}
     \centering
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/default_q_chi_eff.png}
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_ret1_q_chi_eff.png}
-    \caption{Mass ratio ($q$) distribution as a function of $\chi_{\rm eff}$. Left panel assumes all BBH are biased to form prograde  and right panel assumes $10\%$ form retrograde. Input file is \texttt{model\_choice\_old.ini} as for Fig.~\ref{fig:dyn-ecc} left panel and in the right panel we assume \texttt{fraction\_bin\_retro=0.1}.  Equivalent merger rates are ${\mathcal{R}} \sim 22.0(22.2) {\rm Gpc}^{-3} {\rm yr}^{-1}.$
+	\caption[$q$ vs. $\Xeff$]{\textbf{Mass ratio ($q$) distribution as a function of $\Xeff$.} Left panel assumes all BBH are biased to form prograde  and right panel assumes $10\%$ form retrograde. Input file is \texttt{model\_choice\_old.ini} as for Fig.~\ref{fig:dyn-ecc} left panel and in the right panel we assume \texttt{fraction\_bin\_retro=0.1}.  Equivalent merger rates are ${\mathcal{R}} \sim 22.0(22.2) {\rm Gpc}^{-3} {\rm yr}^{-1}.$
    }
     \label{fig:qX}
 \end{figure*}
@@ -171,7 +171,7 @@ LVK observations suggest an intruiging anti-correlation between the BBH mass rat
     \centering
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_tqm_merger_mass_v_radius.png}
       \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_tqm_time_of_merger.png}
-    \caption{As Fig.~\ref{fig:dyn-ecc} except uses a \texttt{pAGN} supplied \citet{ThompsonQuataertMurray05} disk model for 3Myr. Input file is as in Fig.~\ref{fig:dyn-ecc} except \texttt{disk\_model\_name = 'thompson\_etal'}. Equivalent merger rate is ${\mathcal{R}} \sim 0.1  {\rm Gpc}^{-3} {\rm yr}^{-1}.$
+	\caption[Using \code{pAGN} TQM model]{\textbf{Using \code{pAGN} TQM Model.} As Fig.~\ref{fig:dyn-ecc} except uses a \texttt{pAGN} supplied \citet{ThompsonQuataertMurray05} disk model for 3Myr. Input file is as in Fig.~\ref{fig:dyn-ecc} except \texttt{disk\_model\_name = 'thompson\_etal'}. Equivalent merger rate is ${\mathcal{R}} \sim 0.1  {\rm Gpc}^{-3} {\rm yr}^{-1}.$
    }
     \label{fig:tqm_default}
 \end{figure*}
@@ -180,13 +180,13 @@ LVK observations suggest an intruiging anti-correlation between the BBH mass rat
     \centering
     \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_1Myr_ec9_merger_mass_v_radius.png}
       \includegraphics[width=0.5\textwidth]{ch_agnbbh_figs/p123_1Myr_ec9_time_of_merger.png}
-    \caption{As Fig.~\ref{fig:dyn-ecc} except disk runs for 1Myr. Input file and parameters are as in Fig.~\ref{fig:dyn-ecc} except \texttt{timestep\_num = 100}. Equivalent merger rate is ${\mathcal{R}} \sim 41.2 {\rm Gpc}^{-3} {\rm yr}^{-1}.$
+	\caption[Disk lifetime of 1 Myr]{\textbf{Disk lifetime of 1 Myr.} As Fig.~\ref{fig:dyn-ecc} except disk runs for 1Myr. Input file and parameters are as in Fig.~\ref{fig:dyn-ecc} except \texttt{timestep\_num = 100}. Equivalent merger rate is ${\mathcal{R}} \sim 41.2 {\rm Gpc}^{-3} {\rm yr}^{-1}.$
    }
     \label{fig:sg_dyn_on_5Myr_time}
 \end{figure*}
 
 
-Fig.~\ref{fig:qX} illustrates the ($q,\chi_{\rm eff}$) distribution for our default model, assuming the retrograde:prograde fraction of BBH mergers is $0(0.1)$ in the left(right) panel. Most mergers are 1g-1g and center around $\chi_{\rm eff}=0$. Higher generation mergers ($ng-mg$) ($n\geq 2,m \geq 1$) are mostly displaced to $|\chi_{\rm eff}| \sim [0.3,0.7]$ with more massive primaries typically having a spin that dominates the $\chi_{\rm eff}$ calculation. The width of the 1g-1g distribution depends on the choice of initial BH spin magnitude distribution and the extent of the 1g-1g distribution in $q$ is a function of the BH IMF ($M_{\rm BH,min/max}$). Thus, the ($q,\chi_{\rm eff}$) distribution is an effective test of the BH IMF and spin distribution in galactic nuclei.
+Fig.~\ref{fig:qX} illustrates the $q$--$\Xeff$ distribution for our default model, assuming the retrograde:prograde fraction of BBH mergers is $0(0.1)$ in the left(right) panel. Most mergers are 1g-1g and center around $\Xeff=0$. Higher generation mergers ($ng-mg$) ($n\geq 2,m \geq 1$) are mostly displaced to $|\Xeff| \sim [0.3,0.7]$ with more massive primaries typically having a spin that dominates the $\Xeff$ calculation. The width of the 1g-1g distribution depends on the choice of initial BH spin magnitude distribution and the extent of the 1g-1g distribution in $q$ is a function of the BH IMF ($M_{\rm BH,min/max}$). Thus, the $q$--$\Xeff$ distribution is an effective test of the BH IMF and spin distribution in galactic nuclei.
 A full parameter space study can be found in \citep{Cook+25}.
 
 
@@ -201,7 +201,7 @@ In comparison, \Fig{fig:tqm-disk} from \citet{ThompsonQuataertMurray05} shows th
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth]{ch_agnbbh_figs/sg_disk.png}
-\caption[Sirko and Goodman disk model]{Radial AGN disk profiles for $\Mbh=10^8\,\Msun$ and $l_\text{E}=0.5$.
+	\caption[Sirko and Goodman disk model]{\textbf{Sirko and Goodman disk model.} Radial AGN disk profiles for $\Mbh=10^8\,\Msun$ and $l_\text{E}=0.5$.
 Reproduced from \citet{SirkoGoodman03}.}
 \label{fig:sg-disk}
 \end{figure}
@@ -209,7 +209,7 @@ Reproduced from \citet{SirkoGoodman03}.}
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth]{ch_agnbbh_figs/tqm_disk.pdf}
-\caption[Thompson, Quataert \& Murray disk model]{Radial AGN disk profiles for $\Mbh=10^9\,\Msun$, $\dot{M}_\text{out}=320\,\Msun\,\text{yr}^{-1}$, $R_\text{out}=200$ pc, and $\text{Ma}=0.2$.
+	\caption[Thompson, Quataert \& Murray disk model]{\textbf{Thompson, Quataert \& Murray disk model.} Radial AGN disk profiles for $\Mbh=10^9\,\Msun$, $\dot{M}_\text{out}=320\,\Msun\,\text{yr}^{-1}$, $R_\text{out}=200$ pc, and $\text{Ma}=0.2$.
 Reproduced from \citet{ThompsonQuataertMurray05}.}
 \label{fig:tqm-disk}
 \end{figure}
@@ -243,7 +243,7 @@ On average $2-3$ points are associated with each BBH, since our default gas hard
 Since binary hardening or softening in the code is either gas-driven or dynamics driven, we have not yet combined gas and dynamics hardening in a given timestep. More sophisticated treatment of both gas and dynamical hardening will be treated in future work ({Postiglione et al. 2026 in prep.}), particularly with a view to testing LISA detectability of gas and dynamically hardened AGN channel BBH. 
 
 \begin{figure}   \includegraphics[width=1\textwidth]{ch_agnbbh_figs/gw_strain.png}
-    \caption{Characteristic strain ($h_{\rm char}$) as a function of GW frequency ($\nu_{\rm GW}$) after a 0.5Myr episode with default AGN model assumed to lie at $z=0.1$. Note that the LVK sensitivity curve is appropriate for $h_{0}$ rather than $h_{\rm char}$ (see Postiglione et al. 2026 in prep. for a more accurate treatment). Input file and parameters are as in Fig.~\ref{fig:dyn-ecc}.
+	\caption[Characteristic strain vs. frequency]{\textbf{Characteristic strain ($h_{\rm char}$) as a function of GW frequency ($\nu_{\rm GW}$)} after a 0.5Myr episode with default AGN model assumed to lie at $z=0.1$. Note that the LVK sensitivity curve is appropriate for $h_{0}$ rather than $h_{\rm char}$ (see Postiglione et al. 2026 in prep. for a more accurate treatment). Input file and parameters are as in Fig.~\ref{fig:dyn-ecc}.
     }
     \label{fig:gw_strain}
 \end{figure}
@@ -263,5 +263,5 @@ We demonstrate the new, public, open source, fast and reproducible code $\code{M
 We illustrate the code and demonstrate its performance by varying AGN and NSC parameter inputs and show that a high average rate ($\mathcal{R}$) of BBH mergers in the AGN channel is generally associated with relatively dynamically cool populations of BBH in short-lived AGN.
 This may imply a strong contribution to the LVK AGN channel from AGN fuelled by pulses of low angular momentum gas in the same plane from a fuel reservoir.
 For a study of mergers in AGN as a function of NSC model, Galaxy mass and redshift, see \citep{Delfavero+25}.
-The next chapter will present a detailed studies of the AGN channel in ($q,\chi_{\rm eff}$) parameter space published in \citet{Cook+25}.
+The next chapter will present a detailed studies of the AGN channel in $q$--$\Xeff$ parameter space published in \citet{Cook+25}.
 
